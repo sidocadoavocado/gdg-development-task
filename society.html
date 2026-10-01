@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Society Details</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SOCIETY PHOTO OVERLAY -->
+    <header id="society-header" class="society-header">
+
+        <h1>Society Details</h1>
+
+        <button id="theme-toggle">🌙 Dark Mode</button>
+
+    </header>
+
+
+    <main>
+
+        <div class="detail-box">
+
+            <h2 id="society-name">Society Name</h2>
+
+            <p id="society-description">
+                Society description goes here.
+            </p>
+
+
+            <h3>Recruitment Criteria</h3>
+
+            <p id="society-criteria">
+                Recruitment criteria goes here.
+            </p>
+
+
+            <h3>Open Roles</h3>
+
+            <p id="society-roles">
+                Open roles go here.
+            </p>
+
+
+            <h3>Application Deadline</h3>
+
+            <p id="society-deadline">
+                Deadline goes here.
+            </p>
+
+            <p id="deadline-timer">
+                Loading countdown...
+            </p>
+
+
+            <div class="deadline-actions">
+
+                <button id="show-apply-form" type="button">
+                    Apply Now
+                </button>
+
+            </div>
+
+
+            <div id="application-section" style="display: none;">
+
+                <h2>Apply to this Society</h2>
+
+
+                <form id="apply-form">
+
+                    <label for="name">Name</label>
+
+                    <input type="text" id="name">
+
+                    <small class="error" id="name-error"></small>
+
+
+                    <label for="year">Year</label>
+
+                    <select id="year">
+
+                        <option value="">Select your year</option>
+
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
+
+                    </select>
+
+                    <small class="error" id="year-error"></small>
+
+
+                    <label for="branch">Branch</label>
+
+                    <input
+                        type="text"
+                        id="branch"
+                        placeholder="e.g. CSE"
+                    >
+
+                    <small class="error" id="branch-error"></small>
+
+
+                    <label for="role">Role</label>
+
+                    <input
+                        type="text"
+                        id="role"
+                        placeholder="e.g. Web Development"
+                    >
+
+                    <small class="error" id="role-error"></small>
+
+
+                    <label for="why">Why do you want to join?</label>
+
+                    <textarea
+                        id="why"
+                        rows="5"
+                    ></textarea>
+
+                    <small class="error" id="why-error"></small>
+
+
+                    <button type="submit">
+                        Submit Application
+                    </button>
+
+                </form>
+
+
+                <p id="confirmation"></p>
+
+            </div>
+
+
+            <button onclick="window.history.back()" type="button">
+                ← Back
+            </button>
+
+
+        </div>
+
+    </main>
+
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

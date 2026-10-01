@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SocietyHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- HEADER / OVERLAY -->
+    <header class="hero-overlay">
+
+        <!-- SEARCH -->
+        <input 
+            type="text" 
+            id="search" 
+            placeholder="Search societies..."
+        >
+
+        <h1>SocietyHub</h1>
+
+        <p>Find your community.</p>
+
+        <button id="theme-toggle">🌙 Dark Mode</button>
+
+    </header>
+
+
+    <main>
+
+        <section>
+
+
+            <!-- FILTERS -->
+
+            <div class="filters">
+
+                <button class="filter-btn" onclick="filterSocieties('all')">
+                    All
+                </button>
+
+                <button class="filter-btn" onclick="filterSocieties('Technical')">
+                    Technical
+                </button>
+
+                <button class="filter-btn" onclick="filterSocieties('Cultural')">
+                    Cultural
+                </button>
+
+                <button class="filter-btn" onclick="filterSocieties('Photography')">
+                    Photography
+                </button>
+
+                <button class="filter-btn" onclick="filterSocieties('Literary')">
+                    Literary
+                </button>
+
+            </div>
+
+
+            <!-- SOCIETY CARDS -->
+
+            <div class="society-container">
+
+
+                <!-- ROBOTICS -->
+
+                <div class="society-card">
+
+                    <div class="society-image">
+                        <img src="images/robotics.png" alt="Robotics Society">
+                    </div>
+
+                    <div class="society-content">
+
+                        <h3>ARES Robotics</h3>
+
+                        <div class="society-info">
+                            <p>Technical</p>
+                            <p>Build robots and explore research!.</p>
+                        </div>
+
+                        <a href="society.html?society=robotics">
+                            View Society
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CODING -->
+
+                <div class="society-card">
+
+                    <div class="society-image">
+                        <img src="images/coding.png" alt="Coding Club">
+                    </div>
+
+                    <div class="society-content">
+
+                        <h3>Google Developer Groups</h3>
+
+                        <div class="society-info">
+                            <p>Technical</p>
+                            <p>Learn, build and compete through code.</p>
+                        </div>
+
+                        <a href="society.html?society=coding">
+                            View Society
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DRAMA -->
+
+                <div class="society-card">
+
+                    <div class="society-image">
+                        <img src="images/dramatics.png" alt="Drama Society">
+                    </div>
+
+                    <div class="society-content">
+
+                        <h3>Ashwamedh Dramatics</h3>
+
+                        <div class="society-info">
+                            <p>Cultural</p>
+                            <p>Act, perform and tell stories.</p>
+                        </div>
+
+                        <a href="society.html?society=drama">
+                            View Society
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MUSIC -->
+
+                <div class="society-card">
+
+                    <div class="society-image">
+                        <img src="images/music.png" alt="Music Society">
+                    </div>
+
+                    <div class="society-content">
+
+                        <h3>Crescendo Music</h3>
+
+                        <div class="society-info">
+                            <p>Cultural</p>
+                            <p>Explore music and perform together.</p>
+                        </div>
+
+                        <a href="society.html?society=music">
+                            View Society
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SPORTS -->
+
+                <div class="society-card">
+
+                    <div class="society-image">
+                        <img src="images/photography.png" alt="Junoon Photography">
+                    </div>
+
+                    <div class="society-content">
+
+                        <h3>Junoon Photography</h3>
+
+                        <div class="society-info">
+                            <p>Photography</p>
+                            <p>Capture moments and document memories.</p>
+                        </div>
+
+                        <a href="society.html?society=sports">
+                            View Society
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LITERARY -->
+
+                <div class="society-card">
+
+                    <div class="society-image">
+                        <img src="images/literature.png" alt="Literary Society">
+                    </div>
+
+                    <div class="society-content">
+
+                        <h3>Subhasha</h3>
+
+                        <div class="society-info">
+                            <p>Literary</p>
+                            <p>Write, discuss and explore literature.</p>
+                        </div>
+
+                        <a href="society.html?society=literary">
+                            View Society
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div id="empty-state">
+
+                <h3>No societies found</h3>
+
+                <p>
+                    Try searching for a different society or category.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

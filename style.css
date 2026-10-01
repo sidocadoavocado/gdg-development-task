@@ -1,0 +1,1588 @@
+/* ============================= */
+/* GLOBAL                         */
+/* ============================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    color: #222;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* ============================= */
+/* HERO / HEADER                  */
+/* ============================= */
+
+.hero-overlay {
+    height: 325px;
+    width: 100%;
+
+    background-image: url("images/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Dark overlay */
+
+.hero-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.60);
+
+    z-index: -1;
+}
+
+
+/* Hero text */
+
+.hero-overlay h1 {
+    margin: 45px 0 10px;
+}
+
+.hero-overlay p {
+    margin: 0;
+}
+
+
+/* ============================= */
+/* SEARCH                         */
+/* ============================= */
+
+.hero-overlay #search {
+    position: absolute;
+
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 700px;
+    max-width: 80%;
+
+    padding: 16px 24px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 30px;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+
+    outline: none;
+
+    backdrop-filter: blur(4px);
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.12);
+
+    transition:
+        width 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Placeholder */
+
+.hero-overlay #search::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* Search hover */
+
+.hero-overlay #search:hover {
+    width: 760px;
+
+    background: rgba(255, 255, 255, 0.95);
+    color: #222;
+
+    border-color: white;
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.20);
+}
+
+
+/* Search focus */
+
+.hero-overlay #search:focus {
+    width: 760px;
+
+    background: rgba(255, 255, 255, 0.95);
+    color: #222;
+
+    border-color: white;
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.20);
+}
+
+
+/* Placeholder when hovered/focused */
+
+.hero-overlay #search:hover::placeholder,
+.hero-overlay #search:focus::placeholder {
+    color: #555;
+}
+
+
+/* ============================= */
+/* DARK MODE BUTTON               */
+/* ============================= */
+
+#theme-toggle {
+    margin-top: 15px;
+
+    padding: 10px 18px;
+
+    border: 1px solid #555;
+    border-radius: 20px;
+
+    background: transparent;
+    color: white;
+
+    cursor: pointer;
+    font-size: 14px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background: white;
+    color: #222;
+    transform: scale(1.05);
+}
+
+
+/* ============================= */
+/* MAIN                           */
+/* ============================= */
+
+main {
+    padding: 5px 40px;
+}
+
+
+/* ============================= */
+/* FILTERS                        */
+/* ============================= */
+
+.filters {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+.filter-btn {
+    appearance: none;
+
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+
+    background: white;
+    color: #333;
+
+    padding: 10px 20px;
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.filter-btn:hover {
+    background: #222;
+    color: white;
+    border-color: #222;
+
+    transform: translateY(-2px) scale(1.05);
+
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================= */
+/* SOCIETY CARDS                 */
+/* ============================= */
+
+.society-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 28px;
+
+    margin-top: 0;
+}
+
+
+.society-card {
+    background-color: white;
+
+    border-radius: 18px;
+    overflow: hidden;
+
+    padding: 0;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.1);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.society-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================= */
+/* SOCIETY IMAGE                 */
+/* ============================= */
+
+.society-image {
+    width: 100%;
+    height: 220px;
+
+    overflow: hidden;
+}
+
+
+.society-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+
+    transform: scale(1.2);
+    filter: blur(0.5px);
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+
+.society-card:hover .society-image img {
+    transform: scale(1);
+    filter: blur(0);
+}
+
+
+/* ============================= */
+/* SOCIETY CONTENT               */
+/* ============================= */
+
+.society-content {
+    padding: 24px 28px 28px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.society-content h3 {
+    margin: 0;
+    font-size: 24px;
+}
+
+
+/* Hidden information */
+
+.society-info {
+    opacity: 0;
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        max-height 0.35s ease;
+}
+
+
+.society-card:hover .society-info {
+    opacity: 1;
+    max-height: 150px;
+}
+
+
+.society-info p {
+    margin: 14px 0 0;
+}
+
+
+/* ============================= */
+/* SOCIETY CARD LINKS             */
+/* ============================= */
+
+.society-card a {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 10px 15px;
+
+    background-color: #222;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.society-card a:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+
+/* ============================= */
+/* DETAIL PAGE                   */
+/* ============================= */
+
+.detail-box {
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.1);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+#society-name {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+
+main p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* ============================= */
+/* FORM                          */
+/* ============================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+form input,
+form select,
+form textarea {
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 7px;
+
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #222;
+}
+
+
+form button {
+    margin-top: 10px;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: #222;
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+form button:hover {
+    background-color: #444;
+    transform: scale(1.03);
+}
+
+
+#confirmation {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+/* ============================= */
+/* BACK LINK                     */
+/* ============================= */
+
+main a {
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* ============================= */
+/* VALIDATION                    */
+/* ============================= */
+
+.error {
+    color: #d64545;
+    font-size: 13px;
+    min-height: 18px;
+}
+
+
+.input-error {
+    border: 1px solid #d64545 !important;
+}
+
+
+/* ============================= */
+/* EMPTY STATE                   */
+/* ============================= */
+
+#empty-state {
+    display: none;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    margin-top: 20px;
+}
+
+
+#empty-state h3 {
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+
+#empty-state p {
+    color: #777;
+    margin: 0;
+}
+
+
+/* ============================= */
+/* SOCIETY DETAIL HEADER         */
+/* ============================= */
+
+.society-header {
+    height: 280px;
+    width: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+
+    position: relative;
+    z-index: 1;
+
+    transition: height 0.4s ease;
+}
+
+
+.society-header::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.60);
+
+    z-index: -1;
+
+    transition:
+        background 0.4s ease;
+}
+
+
+.society-header:hover {
+    height: 310px;
+}
+
+
+.society-header:hover::before {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+
+/* ============================= */
+/* DARK MODE                     */
+/* ============================= */
+
+body.dark {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+
+body.dark .society-card,
+body.dark .detail-box {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+
+/* Search in dark mode */
+
+body.dark .hero-overlay #search {
+    background: rgba(0, 0, 0, 0.12);
+
+    color: white;
+
+    border-color: rgba(255, 255, 255, 0.30);
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.10);
+}
+
+
+body.dark .hero-overlay #search::placeholder {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+
+/* Search hover/focus in dark mode */
+
+body.dark .hero-overlay #search:hover,
+body.dark .hero-overlay #search:focus {
+    width: 760px;
+
+    background: rgba(0, 0, 0, 0.95);
+
+    color: white;
+
+    border-color: rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.18);
+}
+
+
+body.dark .hero-overlay #search:hover::placeholder,
+body.dark .hero-overlay #search:focus::placeholder {
+    color: #bbb;
+}
+
+
+/* Dark mode filters */
+
+body.dark .filter-btn {
+    background-color: #1e1e1e;
+    color: white;
+    border-color: #555;
+}
+
+
+body.dark .filter-btn:hover {
+    background-color: white;
+    color: #222;
+    border-color: white;
+}
+
+
+/* Dark mode forms */
+
+body.dark form input,
+body.dark form select,
+body.dark form textarea {
+    background-color: #1e1e1e;
+    color: white;
+    border-color: #555;
+}
+
+
+/* Dark mode society links */
+
+body.dark .society-card a {
+    background-color: #d1d1d1 !important;
+    color: #222 !important;
+
+    border: 1px solid #d1d1d1;
+}
+
+
+body.dark .society-card a:hover {
+    background-color: #bdbdbd !important;
+    color: #222 !important;
+}
+
+
+/* Dark empty state */
+
+body.dark #empty-state p {
+    color: #aaa;
+}
+
+
+/* ============================= */
+/* MOBILE                        */
+/* ============================= */
+
+@media (max-width: 700px) {
+
+    main {
+        padding: 20px;
+    }
+
+
+    .hero-overlay {
+        height: 330px;
+    }
+
+
+    .hero-overlay #search {
+        width: 85%;
+        max-width: none;
+
+        top: 18px;
+
+        padding: 14px 20px;
+
+        font-size: 16px;
+    }
+
+
+    .hero-overlay #search:hover,
+    .hero-overlay #search:focus {
+        width: 92%;
+    }
+
+
+    body.dark .hero-overlay #search:hover,
+    body.dark .hero-overlay #search:focus {
+        width: 92%;
+    }
+
+
+    .hero-overlay h1 {
+        margin-top: 55px;
+        font-size: 32px;
+    }
+
+
+    .hero-overlay p {
+        font-size: 16px;
+    }
+
+
+    .society-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .filters {
+        gap: 8px;
+    }
+
+
+    .filter-btn {
+        padding: 9px 14px;
+    }
+
+
+    .society-image {
+        height: 200px;
+    }
+
+
+    #society-name {
+        font-size: 30px;
+    }
+
+}
+
+
+/* ============================= */
+/* HERO HOVER EXPANSION           */
+/* ============================= */
+
+.hero-overlay {
+    height: 325px;
+
+    transition: height 0.4s ease;
+}
+
+.hero-overlay:hover {
+    height: 355px;
+}
+
+
+/* ============================= */
+/* PAGE TRANSITIONS               */
+/* ============================= */
+
+html {
+    background: white;
+}
+
+html:has(body.dark) {
+    background: #121212;
+}
+
+#page-transition {
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    z-index: 99999;
+
+    /* IMPORTANT: allows buttons/links underneath to be clicked */
+    pointer-events: none;
+
+    opacity: 1;
+
+    transition: opacity 0.4s ease;
+}
+
+body.dark #page-transition {
+    background: #121212;
+}
+
+#page-transition.hide {
+    opacity: 0;
+}
+
+/* ============================= */
+/* APPLICATION FORM HOVER EFFECTS */
+/* ============================= */
+
+/* Form input boxes */
+
+form input:hover,
+form select:hover,
+form textarea:hover {
+    transform: scale(1.02);
+    filter: brightness(1.08);
+}
+
+
+/* Keep the effect while using a field */
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    transform: scale(1.02);
+    filter: brightness(1.08);
+    outline: none;
+}
+
+
+/* Slower transition for form fields */
+
+form input,
+form select,
+form textarea {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+/* Submit Application */
+
+form button {
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+form button:hover {
+    background-color: #444;
+    transform: scale(1.05);
+    filter: brightness(1.15);
+}
+
+/* ============================= */
+/* SMALL BACK BUTTON              */
+/* ============================= */
+
+main > button,
+main button:not(form button) {
+    appearance: none !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 10px 18px !important;
+    margin-top: 12px !important;
+
+    background: #222 !important;
+    color: white !important;
+
+    border: 1px solid #444 !important;
+    border-radius: 10px !important;
+
+    font-family: Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+
+    cursor: pointer !important;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08) !important;
+
+    transition:
+        transform 0.35s ease,
+        background-color 0.35s ease,
+        box-shadow 0.35s ease !important;
+}
+
+
+/* Hover */
+
+main > button:hover,
+main button:not(form button):hover {
+    background: #333 !important;
+
+    transform: scale(1.1) translateY(-1px) !important;
+
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Dark mode */
+
+body.dark main > button,
+body.dark main button:not(form button) {
+    background: #1e1e1e !important;
+    color: white !important;
+    border-color: #444 !important;
+}
+
+body.dark main > button:hover,
+body.dark main button:not(form button):hover {
+    background: #292929 !important;
+    box-shadow: 0 3px 7px rgba(255, 255, 255, 0.06) !important;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at 10% 25%,
+            rgba(50, 180, 100, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 60%,
+            rgba(100, 200, 120, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(30, 150, 80, 0.18),
+            transparent 40%
+        ),
+        #f5f8f5;
+
+    background-attachment: fixed;
+}
+
+body.dark {
+    background:
+        radial-gradient(
+            circle at 10% 25%,
+            rgba(40, 160, 80, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 60%,
+            rgba(80, 190, 100, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(30, 130, 70, 0.15),
+            transparent 40%
+        ),
+        #101510;
+
+    background-attachment: fixed;
+}
+
+/* ============================= */
+/* SOCIETY COLOR THEMES           */
+/* ============================= */
+
+/* ROBOTICS — RED + PURPLE */
+
+body.theme-robotics {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(255, 60, 60, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(150, 60, 255, 0.25),
+            transparent 35%
+        ),
+        #f7f5f8;
+}
+
+
+/* CODING — LIGHT SKY BLUE */
+
+body.theme-coding {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(100, 200, 255, 0.28),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(80, 170, 240, 0.22),
+            transparent 35%
+        ),
+        #f3f9fc;
+}
+
+
+/* LITERATURE — YELLOW */
+
+body.theme-literary {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(255, 210, 60, 0.28),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(255, 190, 40, 0.20),
+            transparent 35%
+        ),
+        #faf9f2;
+}
+
+
+/* PHOTOGRAPHY — GREEN */
+
+body.theme-sports {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(60, 190, 100, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(100, 210, 120, 0.20),
+            transparent 35%
+        ),
+        #f4f9f5;
+}
+
+
+/* DRAMATICS — ORANGE */
+
+body.theme-drama {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(255, 140, 40, 0.28),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(255, 100, 30, 0.20),
+            transparent 35%
+        ),
+        #faf6f1;
+}
+
+
+/* MUSIC — GREY */
+
+body.theme-music {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(130, 130, 130, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(170, 170, 170, 0.20),
+            transparent 35%
+        ),
+        #f5f5f5;
+}
+
+/* ============================= */
+/* SOCIETY THEMES — DARK MODE     */
+/* ============================= */
+
+body.dark.theme-robotics {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(255, 60, 60, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(150, 60, 255, 0.18),
+            transparent 35%
+        ),
+        #121212;
+}
+
+body.dark.theme-coding {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(100, 200, 255, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(80, 170, 240, 0.14),
+            transparent 35%
+        ),
+        #121212;
+}
+
+body.dark.theme-literary {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(255, 210, 60, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(255, 190, 40, 0.14),
+            transparent 35%
+        ),
+        #121212;
+}
+
+body.dark.theme-sports {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(60, 190, 100, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(100, 210, 120, 0.14),
+            transparent 35%
+        ),
+        #121212;
+}
+
+body.dark.theme-drama {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(255, 140, 40, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(255, 100, 30, 0.14),
+            transparent 35%
+        ),
+        #121212;
+}
+
+body.dark.theme-music {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(150, 150, 150, 0.16),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(190, 190, 190, 0.12),
+            transparent 35%
+        ),
+        #121212;
+}
+
+h1,
+h2,
+h3,
+#society-name {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+}
+
+.hero-overlay p,
+.society-info p,
+.detail-box p {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+}
+
+.hero-overlay h1 {
+    font-family: "DM Sans", sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -0.055em;
+}
+
+.hero-overlay p {
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    opacity: 0.85;
+}
+
+body.dark .society-card {
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+body.dark .society-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(255, 255, 255, 0.22);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Glass detail card in dark mode */
+body.dark .detail-box {
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+body.dark .detail-box:hover {
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(255, 255, 255, 0.22);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.30);
+}
+
+
+/* ============================= */
+/* CATEGORY GLASS PILL            */
+/* ============================= */
+
+.society-info p:first-child {
+    display: inline-block;
+
+    margin: 12px 0 0;
+    padding: 5px 12px;
+
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 999px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    font-family: "Cascadia Code", monospace;
+    font-size: 12px;
+    font-weight: 500;
+
+    line-height: 1.2;
+    white-space: nowrap;
+
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Hover */
+
+.society-card:hover .society-info p:first-child {
+    background: rgba(0, 0, 0, 0.28);
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+
+/* Dark mode */
+
+body.dark .society-info p:first-child {
+    background: rgba(0, 0, 0, 0.28);
+    border-color: rgba(255, 255, 255, 0.10);
+}
+
+body.dark .society-card:hover .society-info p:first-child {
+    background: rgba(0, 0, 0, 0.34);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+
+/* ========================================================= */
+/* FINAL FILTER PILL OVERRIDE                                */
+/* ========================================================= */
+
+.filters .filter-btn {
+    appearance: none !important;
+
+    padding: 9px 19px !important;
+    margin: 0 !important;
+
+    background: rgba(255, 255, 255, 0.07) !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.20) !important;
+    border-radius: 999px !important;
+
+    font-family: "Cascadia Code", monospace !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+
+    text-transform: uppercase !important;
+    letter-spacing: 0.01em !important;
+    white-space: nowrap !important;
+
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.08) !important;
+
+    transform: none !important;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+.filters .filter-btn:hover {
+    background: rgba(255, 255, 255, 0.11) !important;
+    border-color: rgba(255, 255, 255, 0.27) !important;
+    color: white !important;
+
+    transform: translateY(-1px) !important;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.10),
+        0 4px 12px rgba(0, 0, 0, 0.10) !important;
+}
+
+body.dark .filters .filter-btn {
+    background: rgba(255, 255, 255, 0.055) !important;
+    border-color: rgba(255, 255, 255, 0.16) !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+}
+
+body.dark .filters .filter-btn:hover {
+    background: rgba(255, 255, 255, 0.085) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+/* ============================= */
+/* APPLICATION DEADLINE          */
+/* ============================= */
+
+#society-deadline {
+    font-family: "Cascadia Code", monospace;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-top: 4px;
+    background: rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+}
+
+
+/* ============================= */
+/* APPLY NOW BUTTON              */
+/* ============================= */
+
+#show-apply-form {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    margin-top: 12px;
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition:
+        transform 0.35s ease,
+        background-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+#show-apply-form:hover {
+    background: #333;
+    transform: scale(1.05) translateY(-1px);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ============================= */
+/* APPLICATION REVEAL            */
+/* ============================= */
+
+#application-section {
+    animation: applicationReveal 0.35s ease;
+}
+
+@keyframes applicationReveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* DARK MODE */
+
+body.dark #society-deadline {
+    background: rgba(0, 0, 0, 0.28);
+    border-color: rgba(255, 255, 255, 0.10);
+}
+
+body.dark #show-apply-form {
+    background: #1e1e1e;
+    color: white;
+    border-color: #444;
+}
+
+body.dark #show-apply-form:hover {
+    background: #292929;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    #show-apply-form {
+        padding: 9px 16px;
+        font-size: 13px;
+    }
+}
+
+/* ============================= */
+/* DEADLINE COUNTDOWN             */
+/* ============================= */
+
+#deadline-timer {
+    font-family: inherit;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 2px;
+    margin-bottom: 14px;
+    opacity: 0.8;
+}
+
+
+/* ============================= */
+/* DEADLINE ACTIONS               */
+/* ============================= */
+
+.deadline-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+    margin-bottom: 20px;
+}
+
+.deadline-actions button {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition:
+        transform 0.35s ease,
+        background-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.deadline-actions button:hover {
+    background: #333;
+    transform: scale(1.05) translateY(-1px);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12);
+}
+
+
+/* DARK MODE */
+
+body.dark .deadline-actions button {
+    background: #1e1e1e;
+    color: white;
+    border-color: #444;
+}
+
+body.dark .deadline-actions button:hover {
+    background: #292929;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .deadline-actions {
+        gap: 8px;
+    }
+
+    .deadline-actions button {
+        padding: 9px 16px;
+        font-size: 13px;
+    }
+
+}
