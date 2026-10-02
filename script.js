@@ -338,7 +338,6 @@ function startPageTransition(callback) {
 
 }
 
-
 // FORWARD: HOME → SOCIETY
 
 document.querySelectorAll("a[href^='society.html']").forEach(function(link) {
@@ -357,6 +356,24 @@ document.querySelectorAll("a[href^='society.html']").forEach(function(link) {
 
 });
 
+
+// BACK: SOCIETY → HOME
+
+document.querySelectorAll(".back-button").forEach(function(link) {
+
+    link.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        const destination = this.href;
+
+        startPageTransition(function() {
+            window.location.href = destination;
+        });
+
+    });
+
+});
 
 
 /* SOCIETY BACKGROUND THEME */
