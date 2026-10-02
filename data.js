@@ -1,25 +1,25 @@
 const societies = {
 
     robotics: {
-        name: "Robotics Society",
+        name: "ARES Robotics",
         category: "Technical",
         description: "Build robots, work on exciting engineering projects, and explore robotics.",
-        criteria: "Basic interest in robotics and willingness to learn.",
+        criteria: "Basic interest in robotics and willingness to learn. No prior advanced projects required!",
         roles: "Mechanical, Electronics, Tech, Science, Design",
         deadline: "15 October 2026"
     },
 
     coding: {
-        name: "Coding Club",
+        name: "Google Developers Group",
         category: "Technical",
         description: "Learn programming, build projects, and participate in coding competitions.",
-        criteria: "Interest in programming and problem solving.",
+        criteria: "Interest in programming and problem solving. Basic knowledge of programming languages is a plus.",
         roles: "Development, Operations, DSA, ML",
         deadline: "18 October 2026"
     },
 
     drama: {
-        name: "Drama Society",
+        name: "Ashwamedh Dramatics",
         category: "Cultural",
         description: "Act, perform, and tell stories through theatre and stage performances. Write your own skits, showcase your talent.",
         criteria: "Interest in acting, theatre, or stage production.",
@@ -28,7 +28,7 @@ const societies = {
     },
 
     music: {
-        name: "Music Society",
+        name: "Crescendo Music",
         category: "Cultural",
         description: "Explore music, collaborate with other musicians, and perform together.",
         criteria: "Interest in music and performing. Must know how to play atleast one instrument or sing",
@@ -38,15 +38,15 @@ const societies = {
 
     sports: {
         name: "Junoon Photography",
-        category: "Sports",
-        description: "Participate in photography competitions and contribute to NSUT events.",
+        category: "Photography",
+        description: "Participate in photography competitions and contribute to NSUT events. Document campus life through your lens.",
         criteria: "Interest in photography and regular participation. Must have a camera or good editing skills",
         roles: "Photographers, Editors, PR, Filmmakers",
         deadline: "25 October 2026"
     },
 
     literary: {
-        name: "Literary Society",
+        name: "Subhasha",
         category: "Literary",
         description: "Write, discuss, and explore literature, poetry, and creative expression.",
         criteria: "Interest in writing, reading, or literature. An enthusiasm for creativity is all it takes!",

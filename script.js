@@ -11,6 +11,10 @@ const society = societies[societyId];
 if (society) {
     document.getElementById("society-name").textContent = society.name;
 
+        document.getElementById("society-category").textContent =
+        society.category;
+
+
     document.getElementById("society-description").textContent =
         society.description;
 
@@ -403,6 +407,172 @@ if (showApplyForm && applicationSection) {
             block: "start"
         });
 
+    });
+
+}
+
+// HERO TYPING EFFECT
+
+const heroTyping = document.getElementById("hero-typing");
+
+if (heroTyping) {
+
+    const descriptions = [
+        "Find societies that match your interests.",
+        "Explore. Join. Create.",
+        "Discover your community.",
+    ];
+
+    let descriptionIndex = 0;
+    let characterIndex = 0;
+    let deleting = false;
+
+    function typeDescription() {
+
+        const currentText = descriptions[descriptionIndex];
+
+        if (!deleting) {
+
+            heroTyping.textContent =
+                currentText.substring(0, characterIndex + 1);
+
+            characterIndex++;
+
+            if (characterIndex === currentText.length) {
+
+                setTimeout(function() {
+                    deleting = true;
+                    typeDescription();
+                }, 1800);
+
+                return;
+            }
+
+            setTimeout(typeDescription, 55);
+
+        } else {
+
+            heroTyping.textContent =
+                currentText.substring(0, characterIndex - 1);
+
+            characterIndex--;
+
+            if (characterIndex === 0) {
+
+                deleting = false;
+
+                descriptionIndex =
+                    (descriptionIndex + 1) % descriptions.length;
+
+                setTimeout(typeDescription, 400);
+
+                return;
+            }
+
+            setTimeout(typeDescription, 30);
+        }
+    }
+
+    typeDescription();
+}
+
+// CAMPUS IMAGE CAROUSEL
+
+const campusImages = [
+    "images/background.png",
+    "images/background2.jpg",
+    "images/background3.jpg",
+    "images/background4.jpg"
+];
+
+let campusIndex = 0;
+let isSliding = false;
+
+const hero = document.querySelector(".hero-overlay");
+const previousCampus = document.getElementById("prev-campus");
+const nextCampus = document.getElementById("next-campus");
+
+if (hero && previousCampus && nextCampus) {
+
+    // Create the initial image layer
+    const currentLayer = document.createElement("div");
+
+    currentLayer.className = "campus-image-layer";
+    currentLayer.style.backgroundImage =
+        `url("${campusImages[campusIndex]}")`;
+
+    hero.appendChild(currentLayer);
+
+    // Remove the original CSS background
+    hero.style.backgroundImage = "none";
+
+
+    function changeCampusImage(direction) {
+
+        if (isSliding) return;
+
+        isSliding = true;
+
+        const oldLayer =
+            hero.querySelector(".campus-image-layer:last-of-type");
+
+        let newIndex;
+
+        if (direction === "next") {
+
+            newIndex = campusIndex + 1;
+
+            if (newIndex >= campusImages.length) {
+                newIndex = 0;
+            }
+
+        } else {
+
+            newIndex = campusIndex - 1;
+
+            if (newIndex < 0) {
+                newIndex = campusImages.length - 1;
+            }
+
+        }
+
+        const newLayer = document.createElement("div");
+
+        newLayer.className =
+            "campus-image-layer " +
+            (direction === "next"
+                ? "slide-in-right"
+                : "slide-in-left");
+
+        newLayer.style.backgroundImage =
+            `url("${campusImages[newIndex]}")`;
+
+        hero.appendChild(newLayer);
+
+        oldLayer.classList.add(
+            direction === "next"
+                ? "slide-out-right"
+                : "slide-out-left"
+        );
+
+        setTimeout(function() {
+
+            oldLayer.remove();
+
+            campusIndex = newIndex;
+            isSliding = false;
+
+        }, 550);
+    }
+
+
+    nextCampus.addEventListener("click", function() {
+        changeCampusImage("next");
+    });
+
+
+    previousCampus.addEventListener("click", function() {
+        changeCampusImage("previous");
     });
 
 }

@@ -160,7 +160,7 @@ body {
 /* ============================= */
 
 #theme-toggle {
-    margin-top: 15px;
+    margin-top: 30px;
 
     padding: 10px 18px;
 
@@ -204,8 +204,8 @@ main {
     gap: 14px;
     flex-wrap: wrap;
 
-    margin-top: 0;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
 
@@ -1407,6 +1407,34 @@ body.dark .filters .filter-btn:hover {
     border-color: rgba(255, 255, 255, 0.22) !important;
 }
 
+/* Light mode filter pills (frosted glass, dark text) */
+
+body:not(.dark) .filters .filter-btn {
+    background: rgba(255, 255, 255, 0.38) !important;
+    color: #26332b !important;
+    border: 1px solid rgba(255, 255, 255, 0.75) !important;
+    font-weight: 600 !important;
+
+    backdrop-filter: blur(14px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.9),
+        0 0 0 1px rgba(40, 70, 50, 0.07),
+        0 4px 14px rgba(40, 70, 50, 0.10) !important;
+}
+
+body:not(.dark) .filters .filter-btn:hover {
+    background: rgba(255, 255, 255, 0.62) !important;
+    color: #111 !important;
+    border-color: rgba(255, 255, 255, 0.95) !important;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 1),
+        0 0 0 1px rgba(40, 70, 50, 0.10),
+        0 6px 18px rgba(40, 70, 50, 0.14) !important;
+}
+
 /* ============================= */
 /* APPLICATION DEADLINE          */
 /* ============================= */
@@ -1587,11 +1615,274 @@ body.dark .deadline-actions button:hover {
 
 }
 
+/* ============================= */
+/* HERO TYPING EFFECT             */
+/* ============================= */
 
-/* BACK */
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 0.9em;
+    background: currentColor;
+    margin-right: 7px;
+    transform: translateY(3px);
+    animation: cursorBlink 2s steps(1) infinite;
+}
+
+#hero-typing {
+    min-height: 1.3em;
+}
+
+@keyframes cursorBlink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ================================= */
+/* CAMPUS CAROUSEL ARROWS             */
+/* ================================= */
+
+.campus-arrow {
+    position: absolute !important;
+    top: 50% !important;
+
+    width: 48px !important;
+    height: 48px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: rgba(255, 255, 255, 0.055) !important;
+    border: 1px solid rgba(255, 255, 255, 0.24) !important;
+    border-radius: 12px !important;
+
+    font-size: 0 !important;
+
+    cursor: pointer !important;
+    z-index: 100 !important;
+
+    backdrop-filter: blur(7px) !important;
+    -webkit-backdrop-filter: blur(7px) !important;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.12) !important;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease !important;
+}
+
+
+/* ================================= */
+/* LEFT BUTTON                       */
+/* ================================= */
+
+.campus-prev {
+    left: 18px !important;
+    right: auto !important;
+
+    transform: translateY(-50%) !important;
+}
+
+
+/* ================================= */
+/* RIGHT BUTTON                      */
+/* ================================= */
+
+.campus-next {
+    right: 18px !important;
+    left: auto !important;
+
+    transform: translateY(-50%) !important;
+}
+
+
+/* ================================= */
+/* CHEVRON                            */
+/* ================================= */
+
+.campus-arrow::before {
+    content: "" !important;
+
+    width: 13px !important;
+    height: 13px !important;
+
+    display: block !important;
+
+    border: solid white !important;
+    border-width: 0 0 3px 3px !important;
+
+    border-radius: 1px !important;
+
+    filter:
+        drop-shadow(0 1px 4px rgba(0, 0, 0, 0.75)) !important;
+}
+
+
+/* LEFT = < */
+
+.campus-prev::before {
+    transform: translateX(3px) rotate(45deg) !important;
+}
+
+
+
+/* RIGHT = > */
+
+.campus-next::before {
+    transform: translateX(-3px)rotate(225deg) !important;
+}
+
+
+/* ================================= */
+/* HOVER                              */
+/* ================================= */
+
+.campus-arrow:hover {
+    background: rgba(255, 255, 255, 0.17) !important;
+
+    border-color: rgba(255, 255, 255, 0.38) !important;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.18) !important;
+}
+
+.campus-prev:hover {
+    transform: translateY(-50%) translateX(-3px) !important;
+}
+
+.campus-next:hover {
+    transform: translateY(-50%) translateX(3px) !important;
+}
+
+/* ============================= */
+/* NO DARK MODE OVERRIDES        */
+/* ============================= */
+
+/*
+   The arrows intentionally look identical
+   in light and dark mode.
+*/
+
+
+/* ============================= */
+/* CAMPUS IMAGE SLIDE             */
+/* ============================= */
+
+.campus-image-layer {
+    position: absolute;
+
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: -2;
+}
+
+
+/* NEW IMAGE ENTERING FROM RIGHT */
+
+.campus-image-layer.slide-in-right {
+    animation: campusSlideInRight 0.55s ease forwards;
+}
+
+
+/* NEW IMAGE ENTERING FROM LEFT */
+
+.campus-image-layer.slide-in-left {
+    animation: campusSlideInLeft 0.55s ease forwards;
+}
+
+
+/* OLD IMAGE LEAVING TO LEFT */
+
+.campus-image-layer.slide-out-right {
+    animation: campusSlideOutRight 0.55s ease forwards;
+}
+
+
+/* OLD IMAGE LEAVING TO RIGHT */
+
+.campus-image-layer.slide-out-left {
+    animation: campusSlideOutLeft 0.55s ease forwards;
+}
+
+
+/* ============================= */
+/* SLIDE ANIMATIONS               */
+/* ============================= */
+
+@keyframes campusSlideInRight {
+
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes campusSlideInLeft {
+
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes campusSlideOutRight {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+
+}
+
+@keyframes campusSlideOutLeft {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+
+}
+
+
+/* ============================= */
+/* BACK LINK                     */
+/* ============================= */
 
 .back-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1600,14 +1891,20 @@ body.dark .deadline-actions button:hover {
 
     background: #222;
     color: white;
+
     border: 1px solid #444;
     border-radius: 10px;
 
     font-family: Arial, sans-serif;
     font-size: 14px;
     font-weight: 600;
+
     text-decoration: none;
+
     cursor: pointer;
+
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.08);
 
     transition:
         transform 0.35s ease,
@@ -1617,5 +1914,63 @@ body.dark .deadline-actions button:hover {
 
 .back-button:hover {
     background: #333;
-    transform: scale(1.05) translateY(-1px);
+
+    transform: scale(1.1) translateY(-1px);
+
+    box-shadow:
+        0 3px 7px rgba(0, 0, 0, 0.12);
+}
+
+
+/* DARK MODE */
+
+body.dark .back-button {
+    background: #1e1e1e;
+    color: white;
+
+    border-color: #444;
+}
+
+body.dark .back-button:hover {
+    background: #292929;
+
+    box-shadow:
+        0 3px 7px rgba(255, 255, 255, 0.06);
+}
+
+/* ============================= */
+/* SOCIETY TITLE + CATEGORY      */
+/* ============================= */
+
+.society-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.society-title #society-name {
+    margin: 0;
+}
+
+#society-category {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 12px;
+
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 999px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-family: "Cascadia Code", monospace;
+    font-size: 12px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
