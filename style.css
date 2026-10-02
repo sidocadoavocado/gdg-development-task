@@ -2623,3 +2623,15 @@ body.dark .back-button:hover {
 #show-apply-form {
     margin-top: 4px;
 }
+
+@media (max-width: 600px) {
+
+    #theme-toggle {
+        bottom: 18px !important;
+    }
+
+    .matchmaker-jump {
+        bottom: 18px !important;
+    }
+
+}
