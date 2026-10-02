@@ -358,24 +358,6 @@ document.querySelectorAll("a[href^='society.html']").forEach(function(link) {
 });
 
 
-// BACK: SOCIETY → HOME
-
-const backButton =
-    document.querySelector("button[onclick*='history.back']");
-
-if (backButton) {
-
-    backButton.removeAttribute("onclick");
-
-    backButton.addEventListener("click", function() {
-
-        startPageTransition(function() {
-            window.history.back();
-        });
-
-    });
-
-}
 
 /* SOCIETY BACKGROUND THEME */
 
