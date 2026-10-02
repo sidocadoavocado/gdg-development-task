@@ -27,6 +27,11 @@ if (society) {
         document.getElementById("society-deadline").textContent =
     society.deadline;
 
+    const societyLink = document.getElementById("society-link");
+
+if (societyLink) {
+    societyLink.href = society.link; }
+
     // DEADLINE COUNTDOWN
 
 const deadlineTimer = document.getElementById("deadline-timer");
@@ -573,6 +578,286 @@ if (hero && previousCampus && nextCampus) {
 
     previousCampus.addEventListener("click", function() {
         changeCampusImage("previous");
+    });
+
+}
+
+// ==========================================
+// SOCIETY MATCHMAKER
+// ==========================================
+
+const matchmakerQuestions = [
+    {
+        question: "What are you most interested in?",
+        options: [
+            { text: "Technology & building", tags: ["Technical"] },
+            { text: "Cultural activities", tags: ["Cultural"] },
+            { text: "Writing & literature", tags: ["Literary"] },
+            { text: "Documenting and photography", tags: ["Photography"] }
+        ]
+    },
+
+    {
+        question: "What sounds most fun?",
+        options: [
+            { text: "Building a project", tags: ["Technical"] },
+            { text: "Performing on stage", tags: ["Cultural"] },
+            { text: "Creating & writing", tags: ["Literary"] },
+            { text: "Filmmaking & editing", tags: ["Photography"] }
+        ]
+    },
+
+    {
+        question: "What kind of environment do you prefer?",
+        options: [
+            { text: "Problem-solving", tags: ["Technical"] },
+            { text: "Creative expression", tags: ["Cultural"] },
+            { text: "Ideas & discussion", tags: ["Literary"] },
+            { text: "Visual storytelling", tags: ["Photography"] }
+        ]
+    }
+];
+
+
+const startMatchmaker =
+    document.getElementById("start-matchmaker");
+
+const matchmakerModal =
+    document.getElementById("matchmaker-modal");
+
+const closeMatchmaker =
+    document.getElementById("close-matchmaker");
+
+const matchmakerQuestion =
+    document.getElementById("matchmaker-question");
+
+const matchmakerOptions =
+    document.getElementById("matchmaker-options");
+
+const matchmakerProgress =
+    document.getElementById("matchmaker-progress");
+
+
+let matchmakerStep = 0;
+let matchmakerTags = [];
+
+
+function showMatchmakerQuestion() {
+
+    const question = matchmakerQuestions[matchmakerStep];
+
+    matchmakerQuestion.textContent = question.question;
+
+    matchmakerProgress.textContent =
+        `${matchmakerStep + 1} / ${matchmakerQuestions.length}`;
+
+    matchmakerOptions.innerHTML = "";
+
+    question.options.forEach(function(option) {
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "matchmaker-option";
+        button.textContent = option.text;
+
+        button.addEventListener("click", function() {
+
+            matchmakerTags.push(...option.tags);
+
+            matchmakerStep++;
+
+            if (matchmakerStep < matchmakerQuestions.length) {
+
+                showMatchmakerQuestion();
+
+            } else {
+
+                showMatchmakerResults();
+
+            }
+
+        });
+
+        matchmakerOptions.appendChild(button);
+
+    });
+
+}
+
+
+function showMatchmakerResults() {
+
+    const scores = {};
+
+    Object.keys(societies).forEach(function(id) {
+
+        scores[id] = 0;
+
+        matchmakerTags.forEach(function(tag) {
+
+            if (societies[id].category === tag) {
+                scores[id]++;
+            }
+
+        });
+
+    });
+
+
+    const rankedSocieties =
+        Object.keys(societies)
+            .sort(function(a, b) {
+                return scores[b] - scores[a];
+            })
+            .slice(0, 3);
+
+
+    matchmakerQuestion.textContent =
+        "Your society matches ✦";
+
+    matchmakerProgress.textContent = "";
+
+    matchmakerOptions.innerHTML = "";
+
+
+    rankedSocieties.forEach(function(id) {
+
+        const society = societies[id];
+
+        const result = document.createElement("div");
+
+        result.className = "matchmaker-result";
+
+        result.innerHTML = `
+            <div>
+                <strong>${society.name}</strong>
+                <span>${society.category}</span>
+            </div>
+
+            <button type="button">
+                Explore →
+            </button>
+        `;
+
+
+        result.querySelector("button").addEventListener(
+            "click",
+            function() {
+
+                window.location.href = `society.html?society=${id}`;
+            }
+        );
+
+
+        matchmakerOptions.appendChild(result);
+
+    });
+
+}
+
+
+if (startMatchmaker) {
+
+    startMatchmaker.addEventListener("click", function() {
+
+        matchmakerStep = 0;
+        matchmakerTags = [];
+
+        matchmakerModal.classList.add("show");
+
+        showMatchmakerQuestion();
+
+    });
+
+}
+
+
+if (closeMatchmaker) {
+
+    closeMatchmaker.addEventListener("click", function() {
+
+        matchmakerModal.classList.remove("show");
+
+    });
+
+}
+
+
+if (matchmakerModal) {
+
+    matchmakerModal.addEventListener("click", function(event) {
+
+        if (event.target === matchmakerModal) {
+
+            matchmakerModal.classList.remove("show");
+
+        }
+
+    });
+
+}
+
+// ==========================================
+// MATCHMAKER HERO SHORTCUT
+// ==========================================
+
+const matchmakerJump =
+    document.getElementById("matchmaker-jump");
+
+const matchmakerCard =
+    document.querySelector(".matchmaker-card");
+
+if (matchmakerJump && matchmakerCard) {
+
+    matchmakerJump.addEventListener("click", function() {
+
+        const targetPosition =
+            matchmakerCard.getBoundingClientRect().top +
+            window.scrollY -
+            30;
+
+        const startPosition = window.scrollY;
+        const distance = targetPosition - startPosition;
+
+        const duration = 500; // 0.5 second
+
+        let startTime = null;
+
+
+        function animateScroll(currentTime) {
+
+            if (!startTime) {
+                startTime = currentTime;
+            }
+
+            const elapsed = currentTime - startTime;
+
+            const progress =
+                Math.min(elapsed / duration, 1);
+
+            // Smooth ease-in-out
+            const easedProgress =
+                progress < 0.5
+                    ? 2 * progress * progress
+                    : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+
+            window.scrollTo(
+                0,
+                startPosition + distance * easedProgress
+            );
+
+
+            if (progress < 1) {
+                requestAnimationFrame(animateScroll);
+            }
+
+        }
+
+
+        requestAnimationFrame(animateScroll);
+
     });
 
 }

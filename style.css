@@ -1443,12 +1443,19 @@ body:not(.dark) .filters .filter-btn:hover {
     font-family: "Cascadia Code", monospace;
     font-size: 14px;
     font-weight: 500;
+
     display: inline-block;
+
     padding: 6px 12px;
+
     margin-top: 4px;
+    margin-left: 14px;
+
     background: rgba(0, 0, 0, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 999px;
+
+    vertical-align: middle;
 }
 
 
@@ -1539,13 +1546,14 @@ body.dark #show-apply-form:hover {
 
 #deadline-timer {
     font-family: inherit;
-    font-size: 22px;
+    font-size: 32px;
     font-weight: 700;
-    margin-top: 2px;
+
+    margin-top: -2px;
     margin-bottom: 14px;
+
     opacity: 0.8;
 }
-
 
 /* ============================= */
 /* DEADLINE ACTIONS               */
@@ -1973,4 +1981,645 @@ body.dark .back-button:hover {
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+/* ================================= */
+/* SOCIETY MATCHMAKER                 */
+/* ================================= */
+
+.matchmaker-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin: 25px 0;
+
+    padding: 24px 28px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.matchmaker-card {
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.matchmaker-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+
+.matchmaker-label {
+    font-family: "Cascadia Code", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 0.08em;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+.matchmaker-card h2 {
+    margin: 7px 0 5px;
+
+    font-size: 22px;
+}
+
+
+.matchmaker-card p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 14px;
+}
+
+
+#start-matchmaker {
+    flex-shrink: 0;
+
+    padding: 11px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: "Inter", sans-serif;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+#start-matchmaker:hover {
+    background: rgba(255, 255, 255, 0.16);
+
+    transform: translateY(-2px);
+}
+
+
+/* ================================= */
+/* MATCHMAKER MODAL                  */
+/* ================================= */
+
+.matchmaker-modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+.matchmaker-modal.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.matchmaker-box {
+    position: relative;
+
+    width: min(520px, 100%);
+
+    padding: 32px;
+
+    background: rgba(25, 25, 25, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 20px;
+
+    color: white;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+    transform: translateY(15px);
+
+    transition: transform 0.3s ease;
+}
+
+
+.matchmaker-modal.show .matchmaker-box {
+    transform: translateY(0);
+}
+
+
+.matchmaker-close {
+    position: absolute;
+
+    top: 14px;
+    right: 16px;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+.matchmaker-box h2 {
+    margin: 12px 0 22px;
+
+    font-size: 26px;
+}
+
+
+/* ================================= */
+/* OPTIONS                           */
+/* ================================= */
+
+#matchmaker-options {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.matchmaker-option {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    text-align: left;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.matchmaker-option:hover {
+    background: rgba(255, 255, 255, 0.12);
+
+    border-color: rgba(255, 255, 255, 0.28);
+
+    transform: translateX(4px);
+}
+
+
+/* ================================= */
+/* RESULTS                           */
+/* ================================= */
+
+.matchmaker-result {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.055);
+}
+
+
+.matchmaker-result div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.matchmaker-result strong {
+    font-size: 15px;
+}
+
+
+.matchmaker-result span {
+    font-size: 11px;
+
+    opacity: 0.55;
+
+    text-transform: uppercase;
+}
+
+
+.matchmaker-result button {
+    padding: 7px 11px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+.matchmaker-progress {
+    margin-top: 20px;
+
+    font-family: "Cascadia Code", monospace;
+
+    font-size: 11px;
+
+    opacity: 0.5;
+}
+
+
+/* ================================= */
+/* MOBILE                            */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+    .matchmaker-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 20px;
+    }
+
+    #start-matchmaker {
+        width: 100%;
+    }
+
+    .matchmaker-box {
+        padding: 25px 20px;
+    }
+
+}
+
+/* MATCHMAKER HERO BUTTON */
+
+.matchmaker-jump {
+    position: absolute;
+    right: 28px;
+    bottom: 28px;
+
+    padding: 10px 18px;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.35s ease,
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* SPARKLE */
+
+.matchmaker-jump span {
+    display: inline-block;
+    margin-right: 5px;
+
+    font-size: 20px;
+    line-height: 1;
+    color: white;
+
+    text-shadow:
+        0 0 3px rgba(120, 170, 255, 0.7),
+        0 0 7px rgba(150, 100, 255, 0.55),
+        0 0 11px rgba(210, 210, 255, 0.4);
+
+    transition:
+        transform 0.35s ease,
+        text-shadow 0.35s ease;
+}
+
+
+/* HOVER */
+
+.matchmaker-jump:hover {
+    background: rgba(255, 255, 255, 0.92);
+    color: #222;
+
+    border-color: rgba(255, 255, 255, 0.95);
+
+    transform: scale(1.08) translateY(-1px);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.14);
+}
+
+
+.matchmaker-jump:hover span {
+    transform: rotate(15deg) scale(1.15);
+    color: #222;
+
+    text-shadow:
+        0 0 3px rgba(100, 150, 255, 0.7),
+        0 0 8px rgba(150, 100, 255, 0.6),
+        0 0 13px rgba(210, 210, 255, 0.5);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .matchmaker-jump {
+        right: 16px;
+        bottom: 18px;
+
+        padding: 9px 15px;
+        font-size: 13px;
+    }
+
+}
+
+/* MOVE LIGHT MODE BUTTON TO BOTTOM LEFT */
+
+#theme-toggle {
+    position: absolute !important;
+    left: 28px !important;
+    bottom: 28px !important;
+    top: auto !important;
+    right: auto !important;
+}
+
+/* SOCIETY LINK BUTTON */
+
+.society-link {
+    position: absolute;
+    right: 28px;
+    bottom: 28px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.35s ease,
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* GLOBE */
+
+.society-link span {
+    display: inline-block;
+    margin-right: 6px;
+
+    font-size: 20px;
+    line-height: 1;
+
+    color: white;
+
+    transition:
+        transform 0.35s ease,
+        text-shadow 0.35s ease;
+}
+
+
+/* HOVER */
+
+.society-link:hover {
+    background: rgba(255, 255, 255, 0.92);
+    color: #222;
+
+    border-color: rgba(255, 255, 255, 0.95);
+
+    transform: scale(1.08) translateY(-1px);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.14);
+}
+
+.society-link:hover span {
+    transform: rotate(15deg) scale(1.15);
+    color: #222;
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .society-link {
+        right: 16px;
+        bottom: 18px;
+
+        padding: 9px 15px;
+        font-size: 13px;
+    }
+}
+
+/* DEADLINE LAYOUT */
+
+.deadline-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+}
+
+.deadline-header h3 {
+    margin: 0;
+}
+
+#society-deadline {
+    margin: 0;
+}
+
+
+/* DEADLINE COUNTDOWN */
+
+#deadline-timer {
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 8px;
+        color: #f0c5c5;
+
+    margin-bottom: 14px;
+}
+
+.detail-box h3 {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 13px;
+    margin-bottom: 12px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+
+        font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* COMPACT DETAIL PAGE SPACING */
+
+.detail-box > p {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+.detail-box > h3 {
+    margin-top: 22px;
+    margin-bottom: 10px;
+}
+
+
+/* DEADLINE */
+
+.deadline-header {
+    margin-top: 22px;
+    margin-bottom: 8px;
+}
+
+.deadline-header h3 {
+    margin: 0;
+}
+
+#deadline-timer {
+    margin-top: 8px;
+    margin-bottom: 18px;
+}
+
+/* DETAIL PAGE SPACING FIX */
+
+.detail-box > p {
+    margin-top: 8px;
+    margin-bottom: 22px;
+}
+
+.detail-box > h3 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.deadline-header {
+    margin-top: 18px;
+    margin-bottom: 4px;
+}
+
+#deadline-timer {
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+#show-apply-form {
+    margin-top: 4px;
 }
