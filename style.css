@@ -2627,11 +2627,11 @@ body.dark .back-button:hover {
 @media (max-width: 600px) {
 
     #theme-toggle {
-        bottom: 18px !important;
+        bottom: 19px !important;
     }
 
     .matchmaker-jump {
-        bottom: 18px !important;
+        bottom: 19px !important;
     }
 
 }
