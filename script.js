@@ -297,7 +297,7 @@ const societyImages = {
     coding: "images/coding.png",
     drama: "images/dramatics.png",
     music: "images/music.png",
-    sports: "images/photography.png",
+    photography: "images/photography.png",
     literary: "images/literature.png"
 
 };
